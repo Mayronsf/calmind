@@ -29,7 +29,6 @@
 
 📌 **Home** – Introdução ao site, frases motivacionais e chamada para registrar o humor.  
 📌 **Registro do Humor** – Formulário para o usuário selecionar seu humor diário e receber dicas personalizadas.  
-📌 **Gráficos de Acompanhamento** (em desenvolvimento) – Planejamento para visualizar o histórico emocional do usuário.  
 📌 **Dicas & Recursos** – Seção com recomendações e estratégias para melhorar o bem-estar.  
 
 ---
