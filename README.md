@@ -6,7 +6,7 @@
 
 > 🧘 Um aplicativo para auxiliar usuários a lidar com a ansiedade, oferecendo ferramentas de autoconhecimento, planejamento de atividades e acompanhamento emocional.
 
-🔗 **Acesse o projeto**: [Calmind]([https://calm.surge.sh/](https://calmind-sigma.vercel.app/))  
+🔗 **Acesse o projeto**: [Calmind](https://calmind-sigma.vercel.app/)  
 
 ---
 
