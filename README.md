@@ -1,3 +1,136 @@
+# CalMind - Sua Jornada de Bem-estar
+
+CalMind é uma plataforma moderna de bem-estar mental que ajuda você a acompanhar seu humor e emoções diariamente, fornecendo insights valiosos sobre seu bem-estar emocional.
+
+## 🌟 Funcionalidades
+
+- **Registro de Humor**: Registre seu humor diariamente com notas e emojis
+- **Dashboard Interativo**: Visualize sua evolução de humor ao longo do tempo
+- **Atividades Recomendadas**: Receba sugestões personalizadas baseadas no seu humor
+- **Estatísticas Detalhadas**: Acompanhe sua média de humor, picos e tendências
+- **Interface Responsiva**: Acesse de qualquer dispositivo com uma experiência otimizada
+
+## 🚀 Tecnologias Utilizadas
+
+- React + TypeScript
+- Vite
+- Tailwind CSS
+- Chart.js para visualizações
+- Supabase para backend e autenticação
+- React Router para navegação
+
+## 📦 Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/Mayronsf/calmind.git
+cd calmind
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Configure as variáveis de ambiente:
+Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+```env
+VITE_SUPABASE_URL=sua_url_do_supabase
+VITE_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
+```
+
+4. Inicie o servidor de desenvolvimento:
+```bash
+npm run dev
+```
+
+## 🔧 Configuração do Banco de Dados
+
+Execute os seguintes comandos SQL no seu projeto Supabase:
+
+```sql
+-- Tabela de usuários (já criada automaticamente pelo Supabase)
+-- auth.users
+
+-- Tabela de perfis de usuário
+create table public.profiles (
+  id uuid references auth.users on delete cascade not null primary key,
+  username text unique,
+  full_name text,
+  avatar_url text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  updated_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Tabela de registros de humor
+create table public.mood_entries (
+  id uuid default uuid_generate_v4() primary key,
+  user_id uuid references auth.users on delete cascade not null,
+  mood_level integer not null check (mood_level >= 1 and mood_level <= 5),
+  notes text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Políticas de segurança
+alter table public.profiles enable row level security;
+alter table public.mood_entries enable row level security;
+
+create policy "Usuários podem ver seus próprios perfis"
+  on public.profiles for select
+  using ( auth.uid() = id );
+
+create policy "Usuários podem atualizar seus próprios perfis"
+  on public.profiles for update
+  using ( auth.uid() = id );
+
+create policy "Usuários podem ver seus próprios registros de humor"
+  on public.mood_entries for select
+  using ( auth.uid() = user_id );
+
+create policy "Usuários podem inserir seus próprios registros de humor"
+  on public.mood_entries for insert
+  with check ( auth.uid() = user_id );
+
+create policy "Usuários podem atualizar seus próprios registros de humor"
+  on public.mood_entries for update
+  using ( auth.uid() = user_id );
+
+create policy "Usuários podem deletar seus próprios registros de humor"
+  on public.mood_entries for delete
+  using ( auth.uid() = user_id );
+```
+
+## 🌐 Deploy
+
+O projeto está configurado para deploy na Vercel. Para fazer o deploy:
+
+1. Faça push das alterações para o GitHub
+2. Conecte seu repositório na Vercel
+3. Configure as variáveis de ambiente na Vercel:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+4. Deploy automático será realizado
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 📧 Contato
+
+Mayron Santos - [@mayronsf](https://github.com/Mayronsf)
+
+Link do Projeto: [https://github.com/Mayronsf/calmind](https://github.com/Mayronsf/calmind)
+
 # 🌿 Projeto Saúde Mental - Calmind
 
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow) 
