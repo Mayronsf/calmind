@@ -25,7 +25,7 @@ export default function Login() {
   return (
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">Welcome Back</h2>
+        <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">Bem-vindo de volta</h2>
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
             {error}
@@ -47,7 +47,7 @@ export default function Login() {
           </div>
           <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Password
+              Senha
             </label>
             <input
               id="password"
@@ -62,7 +62,7 @@ export default function Login() {
             type="submit"
             className="w-full bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-opacity-50"
           >
-            Sign In
+            Entrar
           </button>
         </form>
       </div>

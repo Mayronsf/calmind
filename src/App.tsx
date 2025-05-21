@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import MoodCheck from './pages/MoodCheck';
+import MoodDashboard from './components/MoodDashboard';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/mood-check" element={<MoodCheck />} />
+          <Route path="/mood-dashboard" element={<MoodDashboard />} />
         </Routes>
       </div>
     </Router>
