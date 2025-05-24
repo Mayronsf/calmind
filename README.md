@@ -205,6 +205,6 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ## 📧 Contato
 
-Mayron Santos - [@mayronsf](https://github.com/Mayronsf)
+Mayron Ferreira - [@mayronsf](https://github.com/Mayronsf)
 
 Link do Projeto: [https://github.com/Mayronsf/calmind](https://github.com/Mayronsf/calmind)
